@@ -1,16 +1,16 @@
-import { Routes, Route } from 'react-router-dom';
-import Home from '../routes/Home';
-import About from '../routes/About';
-import WebDesign from '../routes/WebDesign';
-import SEO from '../routes/SEO';
-import Services from '../routes/Services';
-import Layout from './Layout';
-import Frontend from '../routes/Frontend';
-import PHP from '../routes/PHP';
-import Node from '../routes/Node';
-import AboutWho from '../routes/AboutWho';
-import OurValues from '../routes/OurValues';
-import WebDev from '../routes/WebDev';
+import { Routes, Route } from "react-router-dom";
+import Home from "../routes/Home";
+import About from "../routes/About";
+import WebDesign from "../routes/WebDesign";
+import SEO from "../routes/SEO";
+import Services from "../routes/Services";
+import Layout from "./Layout";
+import Frontend from "../routes/Frontend";
+import PHP from "../routes/PHP";
+import Node from "../routes/Node";
+import AboutWho from "../routes/AboutWho";
+import OurValues from "../routes/OurValues";
+import WebDev from "../routes/WebDev";
 
 const App = () => {
   return (

@@ -1,7 +1,7 @@
-import { useState, useEffect, useRef } from 'react';
-import Dropdown from './Dropdown';
+import { useState, useEffect, useRef } from "react";
+import Dropdown from "./Dropdown";
 
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const MenuItems = ({ items, depthLevel }) => {
   const [dropdown, setDropdown] = useState(false);
@@ -10,20 +10,16 @@ const MenuItems = ({ items, depthLevel }) => {
 
   useEffect(() => {
     const handler = (event) => {
-      if (
-        dropdown &&
-        ref.current &&
-        !ref.current.contains(event.target)
-      ) {
+      if (dropdown && ref.current && !ref.current.contains(event.target)) {
         setDropdown(false);
       }
     };
-    document.addEventListener('mousedown', handler);
-    document.addEventListener('touchstart', handler);
+    document.addEventListener("mousedown", handler);
+    document.addEventListener("touchstart", handler);
     return () => {
       // Cleanup the event listener
-      document.removeEventListener('mousedown', handler);
-      document.removeEventListener('touchstart', handler);
+      document.removeEventListener("mousedown", handler);
+      document.removeEventListener("touchstart", handler);
     };
   }, [dropdown]);
 
@@ -41,7 +37,11 @@ const MenuItems = ({ items, depthLevel }) => {
 
   return (
     <li
-      className={`menu-items ${depthLevel === 0 && 'bg-green-700 text-white hover:font-bold hover:text-green-700 hover:bg-white'}`}
+      className={`menu-items ${
+        depthLevel === 0
+          ? "bg-primary border text-white hover:text-white hover:bg-primary"
+          : ""
+      }`}
       ref={ref}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
@@ -52,21 +52,23 @@ const MenuItems = ({ items, depthLevel }) => {
           <button
             type="button"
             aria-haspopup="menu"
-            aria-expanded={dropdown ? 'true' : 'false'}
+            aria-expanded={dropdown ? "true" : "false"}
             onClick={() => setDropdown((prev) => !prev)}
+            className="hover:font-bold"
           >
             {window.innerWidth < 960 && depthLevel === 0 ? (
               items.title
             ) : (
-              <Link to={items.url}>{items.title}</Link>
+              <Link to={items.url} className="hover:font-bold">
+                {items.title}
+              </Link>
             )}
 
-            {depthLevel > 0 &&
-            window.innerWidth < 960 ? null : depthLevel > 0 &&
-              window.innerWidth > 960 ? (
-              <span>&raquo;</span>
+            {depthLevel > 0 && window.innerWidth < 960 ? null : depthLevel >
+                0 && window.innerWidth > 960 ? (
+              <span className="ml-4">&raquo;</span>
             ) : (
-              <span className="arrow" />
+              <span className="arrow ml-20" />
             )}
           </button>
           <Dropdown
@@ -80,12 +82,12 @@ const MenuItems = ({ items, depthLevel }) => {
           <button
             type="button"
             aria-haspopup="menu"
-            aria-expanded={dropdown ? 'true' : 'false'}
+            aria-expanded={dropdown ? "true" : "false"}
             onClick={() => setDropdown((prev) => !prev)}
           >
-            {items.title}{' '}
+            {items.title}{" "}
             {depthLevel > 0 ? (
-              <span>&raquo;</span>
+              <span className="ml-4">&raquo;</span>
             ) : (
               <span className="arrow" />
             )}
@@ -97,7 +99,9 @@ const MenuItems = ({ items, depthLevel }) => {
           />
         </>
       ) : (
-        <Link to={items.url}>{items.title}</Link>
+        <Link to={items.url} className="hover:font-bold">
+          {items.title}
+        </Link>
       )}
     </li>
   );
