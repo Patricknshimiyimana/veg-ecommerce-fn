@@ -1,8 +1,8 @@
 export const menuItems = [
 
   {
-    title: 'this is  Services',
-    url: '/services',
+    title: 'This is  Services',
+    url: '/',
     home:true,
     submenu: [
       {

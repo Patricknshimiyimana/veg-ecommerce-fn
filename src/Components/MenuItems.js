@@ -41,7 +41,7 @@ const MenuItems = ({ items, depthLevel }) => {
 
   return (
     <li
-      className="menu-items"
+      className={`menu-items ${depthLevel === 0 && 'bg-green-700 text-white hover:font-bold hover:text-green-700 hover:bg-white'}`}
       ref={ref}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}

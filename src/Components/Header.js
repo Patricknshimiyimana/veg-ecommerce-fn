@@ -7,7 +7,7 @@ const Header = () => {
     <header>
       <div className=" mx-5 my-3 flex items-center max-w-[1200px]">
         <Link to="/" className="logo">
-          Logo
+          Big Basket
         </Link>
         <Navbar />
       </div>

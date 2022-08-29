@@ -4,7 +4,7 @@ const Dropdown = ({ submenus, dropdown, depthLevel }) => {
   const dropdownClass = depthLevel > 1 ? 'dropdown-submenu' : '';
   return (
     <ul
-      className={`dropdown text-gray-900 ${dropdownClass} ${
+      className={`dropdown text-gray-900 ${depthLevel > 1 ? 'border' : 'rounded-none border shadow-sm '} ${dropdownClass} ${
         dropdown ? 'show' : ''
       }`}
     >
